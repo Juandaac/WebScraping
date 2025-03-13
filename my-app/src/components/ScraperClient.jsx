@@ -58,7 +58,7 @@ const ScraperClient = () => {
   };
 
   return (
-    <Container className="mt-5">
+    <Container className="mt-5 container">
       <h2 className="mb-4 text-center">🔍 Web Scraper Cliente</h2>
       {error && <Alert variant="danger">{error}</Alert>}
       
@@ -87,9 +87,8 @@ const ScraperClient = () => {
           </ListGroup>
         </div>
       )}
-
       <Form onSubmit={handleSubmit}>
-        <Form.Group className="mb-3">
+        <Form.Group className="mb-3 wordKey">
           <Form.Label>🔑 Palabras Clave</Form.Label>
           {keywords.map((keyword, index) => (
             <Form.Control
@@ -105,10 +104,11 @@ const ScraperClient = () => {
             + Agregar otra palabra clave
           </Button>
         </Form.Group>
-
-        <Button variant="primary" type="submit" disabled={loading}>
-          {loading ? "🔄 Analizando..." : "🚀 Analizar"}
-        </Button>
+        <div className="submitButton">
+          <Button variant="primary" type="submit" disabled={loading}>
+            {loading ? "🔄 Analizando..." : "🚀 Analizar"}
+          </Button>
+        </div>
       </Form>
 
       {results.length > 0 && (
